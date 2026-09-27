@@ -1,0 +1,70 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  html {
+    scroll-behavior: smooth;
+    -webkit-tap-highlight-color: transparent;
+  }
+  h1, h2, h3, h4, h5 {
+    @apply font-display tracking-tight text-navy-900;
+  }
+  ::selection {
+    @apply bg-brand-500/20;
+  }
+  :focus-visible {
+    @apply outline-none ring-2 ring-brand-500 ring-offset-2;
+  }
+  @media (prefers-reduced-motion: reduce) {
+    html { scroll-behavior: auto; }
+    *, *::before, *::after {
+      animation-duration: 0.01ms !important;
+      animation-iteration-count: 1 !important;
+      transition-duration: 0.01ms !important;
+    }
+  }
+}
+
+@layer components {
+  .section {
+    @apply py-20 sm:py-24 lg:py-28;
+  }
+  .eyebrow {
+    @apply inline-flex items-center gap-2 rounded-full border border-brand-100 bg-brand-50 px-3 py-1 text-xs font-semibold uppercase tracking-wider text-brand-700;
+  }
+  .card {
+    @apply rounded-2xl border border-navy-100 bg-white shadow-soft;
+  }
+  .card-hover {
+    @apply transition duration-300 hover:-translate-y-1 hover:border-brand-200 hover:shadow-lift;
+  }
+  .input {
+    @apply block w-full rounded-xl border-navy-200 bg-white px-4 py-2.5 text-sm text-navy-900 shadow-sm placeholder:text-navy-400 transition focus:border-brand-500 focus:ring-brand-500;
+  }
+  .input-error {
+    @apply border-red-400 focus:border-red-500 focus:ring-red-500;
+  }
+  .label {
+    @apply mb-1.5 block text-sm font-medium text-navy-800;
+  }
+  .link-arrow {
+    @apply inline-flex items-center gap-1 text-sm font-semibold text-brand-600 transition hover:gap-2 hover:text-brand-700;
+  }
+  .bg-grid {
+    background-image: linear-gradient(rgba(13, 23, 51, 0.05) 1px, transparent 1px),
+      linear-gradient(90deg, rgba(13, 23, 51, 0.05) 1px, transparent 1px);
+    background-size: 40px 40px;
+  }
+  .bg-grid-dark {
+    background-image: linear-gradient(rgba(255, 255, 255, 0.05) 1px, transparent 1px),
+      linear-gradient(90deg, rgba(255, 255, 255, 0.05) 1px, transparent 1px);
+    background-size: 40px 40px;
+  }
+  .text-gradient {
+    @apply bg-gradient-to-r from-brand-600 to-accent-500 bg-clip-text text-transparent;
+  }
+  .prose-body p {
+    @apply mb-5 leading-8 text-navy-700;
+  }
+}
